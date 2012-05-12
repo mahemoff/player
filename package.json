@@ -1,0 +1,33 @@
+{
+  "name": "player",
+  "title": "Player",
+  "description": "Player FM podcast web client",
+  "version": "0.1.0",
+  "homepage": "http://player.fm",
+  "author": {
+    "name": "Mahemoff",
+    "email": "michael@mahemoff.com",
+    "url": "http://mahemoff.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mahemoff/player.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mahemoff/player/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://player.fm/blob/master/LICENSE-MIT"
+    },
+    {
+      "type": "GPL",
+      "url": "http://player.fm/blob/master/LICENSE-GPL"
+    }
+  ],
+  "dependencies": {
+    "jquery": "~1.7"
+  },
+  "keywords": []
+}
