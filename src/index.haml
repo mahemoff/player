@@ -1,0 +1,29 @@
+%html
+
+  %head
+    %link(href='lib/jquery.mobile.css' rel='stylesheet' type='text/css' )
+    %link(href='css/index.css' rel='stylesheet' type='text/css' )
+
+  %body
+
+    #home(data-role='page')
+      %div(data-role='header')
+        %h1 good
+      %div(data-role='content')
+        %h2 Select a category
+        %ul(data-role='listview' data-inset='true')
+          %li
+            %a(href='test.html') best
+          %li
+            %a(href='test.html') pest
+          %li
+            %a(href='test.html') zest
+      %div(data-role='footer')
+        %h4 ok
+
+    %script(src='js/index.js')
+    %script(src='lib/jquery-1.7.1.min.js')
+    %script(src='lib/jquery.mobile-1.1.0.min.js')
+
+    :javascript
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
