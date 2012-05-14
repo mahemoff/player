@@ -1,17 +1,21 @@
 # Player FM Mobile App
 
-A mobile demo for Player FM ..
+A barebones mobile app demo for Player FM ..
 
 ## Getting Started
 
+To build this app, install Ruby, RubyGems, then Guard and friends like this:
+
     gem install guard guard-haml guard-coffeescript guard-sass
 
-I'm using [LiveReload](http://livereload.com/) to auto-compile the HAML,
-Coffee, and SASS. With LiveReload:
+Point to localhost and you should see a channel list like:
 
-  * Check the "Compile LESS, Stylus ..." option.
-  * **IMPORTANT:** You must check the "Enabled" option for HAML, in Compiler
-    Settings. LiveReload doesn't enable it by default.
+  ![Player FM Mobile App](http://i.imgur.com/zK0I1.png)
+
+Click on a channel and you see the latest episodes. Click on latest
+episodes and it plays the episode.
+
+You can edit the username in the source to choose whose channels you see.
 
 ## License
 Copyright (c) 2012 Nuvomondo Ltd
