@@ -1,39 +1,18 @@
-# Player
+# Player FM Mobile App
 
-Player FM podcast web client
+A mobile demo for Player FM ..
 
 ## Getting Started
-Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/mahemoff/player/master/dist/player.min.js
-[max]: https://raw.github.com/mahemoff/player/master/dist/player.js
+    gem install guard guard-haml guard-coffeescript guard-sass
 
-In your web page:
+I'm using [LiveReload](http://livereload.com/) to auto-compile the HAML,
+Coffee, and SASS. With LiveReload:
 
-```html
-<script src="jquery.js"></script>
-<script src="dist/player.min.js"></script>
-<script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
-</script>
-```
-
-## Documentation
-_(Coming soon)_
-
-## Examples
-_(Coming soon)_
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
-
-_Also, please don't edit files in the "dist" subdirectory as they are generated via grunt. You'll find source code in the "src" subdirectory!_
-
-## Release History
-_(Nothing yet)_
+  * Check the "Compile LESS, Stylus ..." option.
+  * **IMPORTANT:** You must check the "Enabled" option for HAML, in Compiler
+    Settings. LiveReload doesn't enable it by default.
 
 ## License
-Copyright (c) 2012 Mahemoff  
-Licensed under the MIT, GPL licenses.
+Copyright (c) 2012 Nuvomondo Ltd
+Licensed under the MIT, BSD, and GPL licenses.

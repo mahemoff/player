@@ -1,71 +1,36 @@
- categoryData =
-  animals: {
-    name: "Animals",
-    description: "All your favorites from aardvarks to zebras.",
-    items: [
-      {
-        name: "Pets"
-      },
-      {
-        name: "Farm Animals"
-      },
-      {
-        name: "Wild Animals"
-      }
-    ]
-  },
-  colors: {
-    name: "Colors",
-    description: "Fresh colors from the magic rainbow.",
-    items: [
-      {
-        name: "Blue"
-      },
-      {
-        name: "Green"
-      },
-      {
-        name: "Orange"
-      },
-      {
-        name: "Purple"
-      },
-      {
-        name: "Red"
-      },
-      {
-        name: "Yellow"
-      },
-      {
-        name: "Violet"
-      }
-    ]
-  },
-  vehicles: {
-    name: "Vehicles",
-    description: "Everything from cars to planes.",
-    items: [
-      {
-        name: "Cars"
-      },
-      {
-        name: "Planes"
-      },
-      {
-        name: "Construction"
-      }
-    ]
-  }
+pageTemplate = _.template($('#pageTemplate').html())
+$page = null
 
-$(document).bind "pagebeforechange", ( e, data ) ->
+$ ->
+  $page = $('[data-role="page"]')
+  loadAndShowChannels()
 
-  if ( typeof data.toPage === "string" ) {
+loadAndShowChannels = ->
+  $.getJSON 'http://player.fm/mahemoff.jsonp?callback=?', (user) ->
+    showList user.favoriteChannels
+    $('a', $page).click -> loadAndShowEpisodes($(this).data('id'))
+    false
 
-      u = $.mobile.path.parseUrl( data.toPage ),
-      re = /^#category-item/
+loadAndShowEpisodes = (id) ->
+  $.getJSON "http://player.fm/channels/#{id}.jsonp?callback=?", (channel) ->
+    showList channel.episodes
+    $('[data-role="content"] a', $page).click ->
+      play(this.href)
+      false
+    false
 
-    if ( u.hash.search(re) !== -1 ) {
-      showCategory( u, data.options )
-      e.preventDefault()
-    }
-  }
+showList = (items) ->
+  pageContent = pageTemplate(items: items)
+  console.log(pageContent)
+  $('[data-role="content"]').html(pageContent)
+  $page.page()
+  $("[data-role='listview']").listview()
+  $.mobile.changePage($page)
+
+play = (url) ->
+  $('<audio/>').appendTo('body') unless $('audio').length
+  audio = $('audio')[0]
+  audio.src = url
+  audio.load()
+  audio.play()
+  console.log audio

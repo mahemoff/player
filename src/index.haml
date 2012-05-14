@@ -6,24 +6,39 @@
 
   %body
 
+    %a(href='.') Player FM
+
     #home(data-role='page')
       %div(data-role='header')
-        %h1 good
       %div(data-role='content')
         %h2 Select a category
         %ul(data-role='listview' data-inset='true')
           %li
-            %a(href='test.html') best
+            %a(href='test.html') users
           %li
-            %a(href='test.html') pest
+            %a(href='test.html') news
           %li
-            %a(href='test.html') zest
+            %a(href='test.html') about
       %div(data-role='footer')
-        %h4 ok
+        %h4 pfm | testing
 
-    %script(src='js/index.js')
+    %script#pageTemplate.template(type='text/html')
+      :plain
+          <div data-role='header'>Player</div>
+          <div data-role='content'>
+            <h2>Favorite Channels:</h2>
+            <ul data-role='listview' data-inset='true'>
+              <% _(items).each(function(item) { %>
+                <li><a data-id='<%= item.id %>' rel='external' href='<%= item.url %>'><%= item.title||item.name %></a></li>
+              <% }); %>
+            </ul>
+          <div data-role='footer'></div>
+
     %script(src='lib/jquery-1.7.1.min.js')
     %script(src='lib/jquery.mobile-1.1.0.min.js')
-
-    :javascript
-      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    %script(src='lib/underscore-min.js')
+    %script(src='js/index.js')
+    %script
+      // optional livereload support
+      :javascript
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
